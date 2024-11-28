@@ -8,5 +8,8 @@
   "keywords": [],
   "author": "Rafael Szyszko",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "cypress": "^13.16.0"
+  }
 }

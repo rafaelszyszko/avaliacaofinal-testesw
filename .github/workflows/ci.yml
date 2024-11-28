@@ -1,4 +1,4 @@
-name: CiCD2 Cypress
+name: Cypress Tests
 
 on:
   push:
@@ -6,25 +6,19 @@ on:
       - main
 
 jobs:
-  run-cypress-test:
+  cypress-run:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: Install dependencies
-        run: |
-          cd cypress
-          npm install
+        run: npm install
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          working-directory: cypress
-          browser: chrome
+      - name: Run Cypress tests
+        run: npx cypress run
