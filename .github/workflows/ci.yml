@@ -1,4 +1,4 @@
-name: Run Cypress Tests
+name: Rodar testes 
 
 on:
   push:
@@ -21,6 +21,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Set Cypress permissions
+        run: chmod +x ./node_modules/.bin/cypress
+
 
       - name: Run Cypress tests
         run: npx cypress run
